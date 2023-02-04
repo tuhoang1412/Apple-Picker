@@ -19,7 +19,14 @@ public class Basket : MonoBehaviour
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         Vector3 pos = this.transform.position;
-        pos.x = mousePos3D.x;
+        
+        if (mousePos3D.x > 23){
+            pos.x = 25;
+        } else if (mousePos3D.x < -23){
+            pos.x = -25;
+        } else {
+            pos.x = mousePos3D.x;
+        }
         this.transform.position = pos;
     }
 
